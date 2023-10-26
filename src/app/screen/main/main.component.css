@@ -1,0 +1,41 @@
+.inside {
+    position: absolute;
+    background: white;
+    width: 600px;
+    border-radius: 8px;
+    padding: 20px;
+    bottom: 20px;
+    left: 30px;
+}
+
+.cls {
+    flex-direction: column;
+    flex-grow: 1;
+    align-items: initial;
+    border: 1px solid #d9e2e8;
+    border-radius: 8px;
+    margin-top: 20px;
+    margin: 10px;
+    padding: 15px;
+}
+
+.cls-icon {
+    position: relative;
+    width: 40px;
+    height: 50px;
+    background: #ffdac1;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.center {
+    margin: auto;
+}
+
+.sgv {
+    fill: #c24f02;
+    margin: auto;
+}
