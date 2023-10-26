@@ -1,10 +1,13 @@
 import { Injectable } from '@angular/core';
-import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, signInWithPopup, GoogleAuthProvider } from '@angular/fire/auth';
+import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, signInWithPopup, GoogleAuthProvider, UserCredential } from '@angular/fire/auth';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
+  private STORAGE_TOKEN_PARAM: string = 'token';
+  private loggedIn = new Subject<boolean>();
 
   constructor(private auth: Auth) { }
 
@@ -24,4 +27,27 @@ export class UserService {
     return signOut(this.auth);
   }
 
+  setLoggedIn(resp: UserCredential) {
+    localStorage.setItem(this.STORAGE_TOKEN_PARAM, resp.user.refreshToken);
+    this.loggedIn.next(true);
+  }
+
+  setLoggedOut() {
+    localStorage.removeItem(this.STORAGE_TOKEN_PARAM);
+    this.loggedIn.next(false);
+  }
+
+  getLoggedIn() {
+    return localStorage.getItem(this.STORAGE_TOKEN_PARAM) != null;
+  }
+
+  checkLoggedIn() {
+    console.log("storage:", localStorage.getItem(this.STORAGE_TOKEN_PARAM));
+    if (localStorage.getItem(this.STORAGE_TOKEN_PARAM) != null) {
+      this.loggedIn.next(true);
+    } else {
+      this.loggedIn.next(false);
+    }
+    return this.loggedIn.asObservable();
+  }
 }

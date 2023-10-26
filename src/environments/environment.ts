@@ -4,12 +4,13 @@
 
 export const environment = {
   firebase: {
-    projectId: 'gdi-firebase-auth',
-    appId: '1:776626994933:web:e6c3664546d6901e8f8fbc',
-    storageBucket: 'gdi-firebase-auth.appspot.com',
-    apiKey: 'AIzaSyBabwcqhlQX3KY0xCrptT9liGpLuKJlzvs',
-    authDomain: 'gdi-firebase-auth.firebaseapp.com',
-    messagingSenderId: '776626994933',
+    apiKey: "AIzaSyDA7gB_nZ_HokBa142IgBlGv9B6nOjPa4w",
+    authDomain: "mfdenti-15841.firebaseapp.com",
+    databaseURL: "https://mfdenti-15841.firebaseio.com",
+    projectId: "mfdenti-15841",
+    storageBucket: "mfdenti-15841.appspot.com",
+    messagingSenderId: "1076445808998",
+    appId: "1:1076445808998:web:9ca004412eccba498460a7"
   },
   production: false
 };
